@@ -49,7 +49,7 @@
                     document.getElementById("userscript_vlc").addEventListener("click", function () {
                         RequestData().then(response_json => {
                             var findScene = response_json.data.findScene;
-                            document.location.href = 'stash://|MediaPlayer|' + findScene.path;
+                            document.location.href = 'vlcs' + findScene.path;
                         });
                     }, false);
                 }
