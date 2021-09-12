@@ -3,4 +3,4 @@ Userscript for Stash
 
 # VLC Userscript
 
-You will probably need to edit the line 52. `document.location.href = 'vlcs:' + findScene.path;`
+You will probably need to edit the line 51. `document.location.href = 'vlcs:' + path_text.textContent.replace("file://","");`
