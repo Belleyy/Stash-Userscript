@@ -2,7 +2,6 @@
 // @name        Stash Userscript (VLC)
 // @description Userscript for Stash
 // @match       *localhost:9999/*
-// @require  	https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @grant 		GM_openInTab
 // @version 1.0
 // @author Belley
@@ -47,7 +46,7 @@
                     vlc_div.innerHTML = '<a class="minimal settings-button btn btn-primary" id="userscript_vlc" style="z-index: 1;position: relative;float: left;border-radius: 50px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16"><path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"></path><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"></path></svg></a>';
                     jwplayer_div.insertBefore(vlc_div, document.getElementsByClassName('jw-aspect jw-reset')[0]);
                     document.getElementById("userscript_vlc").addEventListener("click", function () {
-                        var path_text = getElementByXpath('//a[contains(@href,"file://")]/@href')
+                        var path_text = getElementByXpath('//dl[contains(@class,"scene-file-info")]//a[contains(@href,"file://")]/@href')
                         if (path_text){
                             document.location.href = 'vlcs:' + path_text.textContent.replace("file://","");
                         }else{
